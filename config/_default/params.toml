@@ -1,0 +1,12 @@
+colorScheme = "blowfish"
+defaultAppearance = "dark"
+
+[homepage]
+  layout = "profile"
+  showRecent = true
+  showRecentItems = 5
+
+[article]
+  showDate = true
+  showTags = true
+  showReadingTime = true
