@@ -13,7 +13,7 @@
     
     [en.params.author]
       name = "Dominik"
-      image = "me.jpg" 
+      image = "me.webp" 
       headline = "Tech Enthusiast & Developer"
       bio = "A blog about switching from Windows to Linux, learning programming, and generating schedules in AI."
       
