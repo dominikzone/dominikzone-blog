@@ -2,6 +2,7 @@
 title: "Welcome on my blog"
 date: 2026-02-21
 draft: false
+showComments: true
 tags: ["welcome", "linux"]
 ---
 
