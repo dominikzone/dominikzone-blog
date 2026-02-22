@@ -6,5 +6,5 @@ showComments: true
 tags: ["git_push", "linux"]
 ---
 
-I'm testing vscode git push.
+I'm testing vscode git push!
 
