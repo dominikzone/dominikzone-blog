@@ -1,5 +1,5 @@
 ---
-title: "Welcome on my blog"
+title: "VS Code GitPush Test"
 date: 2026-02-21
 draft: false
 showComments: true
