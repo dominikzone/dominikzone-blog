@@ -12,6 +12,11 @@ defaultAppearance = "dark"
   showReadingTime = true
   showComments = true
 
+[search]
+  enable = true
+  type = "fuse"
+  showStandardSearch = true
+
 [comments]
   system = "giscus"
 
@@ -28,13 +33,9 @@ defaultAppearance = "dark"
   theme = "preferred_color_scheme"
   lang = "en"
 
-  [search]
-  enable = true
-  type = "fuse"
-  showStandardSearch = true
-
-  [analytics]
+[analytics]
   provider = "umami"
-  [analytics.umami]
-    websiteId = "7f514288-e30b-4add-82c4-71b082ceffe8"
-    url = "https://cloud.umami.is/script.js"
+
+[analytics.umami]
+  websiteId = "7f514288-e30b-4add-82c4-71b082ceffe8"
+  url = "https://cloud.umami.is/script.js"
