@@ -39,3 +39,6 @@ defaultAppearance = "dark"
 [analytics.umami]
   websiteId = "7f514288-e30b-4add-82c4-71b082ceffe8"
   url = "https://cloud.umami.is/script.js"
+
+[header]
+  showLogo = true
