@@ -2,9 +2,10 @@ colorScheme = "blowfish"
 defaultAppearance = "dark"
 
 [homepage]
-  layout = "profile"
+  layout = "background"
   showRecent = true
   showRecentItems = 5
+  homepageImage = "background.webp"
 
 [article]
   showDate = true
