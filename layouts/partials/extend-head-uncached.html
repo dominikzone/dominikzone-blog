@@ -1,0 +1,12 @@
+{{/* Social share: always use me.webp as preview image (also when post has its own images). og:title / og:description = page title and summary. */}}
+{{ $socialImage := "me.webp" | absURL }}
+<meta property="og:image" content="{{ $socialImage }}">
+<meta name="twitter:image" content="{{ $socialImage }}">
+{{ with .Title }}
+  <meta property="og:title" content="{{ . }}">
+  <meta name="twitter:title" content="{{ . }}">
+{{ end }}
+{{ with .Summary | default .Description | default .Site.Params.description }}
+  <meta property="og:description" content="{{ . }}">
+  <meta name="twitter:description" content="{{ . }}">
+{{ end }}

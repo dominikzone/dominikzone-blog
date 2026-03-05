@@ -7,6 +7,7 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   --font-cyber: 'Orbitron', 'Fira Code', monospace;
+  --font-share-modal: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Apply fonts and optimized sizes/line heights to different elements */
@@ -164,6 +165,7 @@ pre, code, .prose code {
   margin: 0 0 1rem;
   font-size: 1rem;
   font-weight: 600;
+  font-style: italic;
 }
 .share-modal-links {
   display: flex;
@@ -171,22 +173,44 @@ pre, code, .prose code {
   gap: 0.5rem;
 }
 .share-modal-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 0.5rem 0.75rem;
   border-radius: 8px;
   color: #e5e7eb;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.375rem;  /* +8px vs 0.9rem ~14px → ~22px */
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-family: var(--font-share-modal);
   transition: background 0.2s, color 0.2s;
   text-align: left;
   border: none;
   cursor: pointer;
-  font-family: inherit;
   background: transparent;
 }
 .share-modal-link:hover {
   background: #374151;
   color: #fff;
+}
+.share-modal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+}
+.share-modal-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.share-modal-label {
+  letter-spacing: 3px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 .share-modal-close {
   position: absolute;
@@ -206,6 +230,29 @@ pre, code, .prose code {
 .share-modal-close:hover {
   color: #fff;
   background: #374151;
+}
+
+/* Toast "Link copied" after copy – 2.5s, italic */
+.share-copy-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  padding: 0.75rem 1.25rem;
+  background: #1f2937;
+  color: #f9fafb;
+  border-radius: 8px;
+  font-style: italic;
+  font-size: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+.share-copy-toast.hidden {
+  display: none;
+}
+.dark .share-copy-toast {
+  background: #111827;
+  border: 1px solid #374151;
 }
 
 /* Reading Progress Bar – height +8px (3px → 11px) */

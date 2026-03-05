@@ -4,6 +4,9 @@ defaultAppearance = "dark"
 # Custom branding
 [branding]
   logo = "me.webp"
+
+# Default image for social sharing (Open Graph & Twitter Cards) – used when no featured image
+defaultSocialImage = "me.webp"
   favicon = "/favicon.ico"
   customCSS = ["css/custom.css"]
 
