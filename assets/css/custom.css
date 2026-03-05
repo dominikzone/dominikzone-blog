@@ -128,6 +128,86 @@ pre, code, .prose code {
   color: #a5b4fc;
 }
 
+/* Share modal (fallback when Web Share API unavailable) */
+.share-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.share-modal.hidden {
+  display: none;
+}
+.share-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+.share-modal-content {
+  position: relative;
+  background: #1f2937;
+  color: #f9fafb;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  min-width: 280px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.dark .share-modal-content {
+  background: #111827;
+  border: 1px solid #374151;
+}
+.share-modal-title {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.share-modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.share-modal-link {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  background: transparent;
+}
+.share-modal-link:hover {
+  background: #374151;
+  color: #fff;
+}
+.share-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.share-modal-close:hover {
+  color: #fff;
+  background: #374151;
+}
+
 /* Reading Progress Bar – height +8px (3px → 11px) */
 .reading-progress {
   position: fixed;

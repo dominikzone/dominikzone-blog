@@ -76,14 +76,28 @@
           {{ end }}
         </div>
         
-        <!-- Share Buttons -->
-        <div class="flex gap-2 items-center">
-          <button type="button" class="share-btn-cyber inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Share article">
+        <!-- Share: native Web Share API on mobile, fallback modal with social links on desktop -->
+        <div class="flex gap-2 items-center relative">
+          <button type="button" id="share-post-btn" class="share-btn-cyber inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer" aria-label="Share article" data-share-url="{{ .Permalink | absURL }}" data-share-title="{{ .Title }}" data-share-text="{{ .Summary | plainify | truncate 120 }}">
             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
             </svg>
             <span class="share-label-cyber">share</span>
           </button>
+          <div id="share-modal" class="share-modal hidden" aria-hidden="true">
+            <div class="share-modal-backdrop" id="share-modal-backdrop"></div>
+            <div class="share-modal-content">
+              <p class="share-modal-title">Share this post</p>
+              <div class="share-modal-links">
+                <a href="#" class="share-modal-link share-link-fb" target="_blank" rel="noopener" aria-label="Share on Facebook">Facebook</a>
+                <a href="#" class="share-modal-link share-link-x" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">X (Twitter)</a>
+                <a href="#" class="share-modal-link share-link-wa" target="_blank" rel="noopener" aria-label="Share on WhatsApp">WhatsApp</a>
+                <a href="#" class="share-modal-link share-link-li" target="_blank" rel="noopener" aria-label="Share on LinkedIn">LinkedIn</a>
+                <button type="button" class="share-modal-link share-copy-link" id="share-copy-link" aria-label="Copy link">Copy link</button>
+              </div>
+              <button type="button" class="share-modal-close" id="share-modal-close" aria-label="Close">×</button>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -132,6 +146,56 @@ window.addEventListener('scroll', () => {
   const scrolled = (winScroll / height) * 100;
   document.getElementById('reading-progress').style.width = scrolled + '%';
 });
+
+// Share: Web Share API (native sheet on mobile) or fallback modal with social links
+(function() {
+  var btn = document.getElementById('share-post-btn');
+  var modal = document.getElementById('share-modal');
+  if (!btn || !modal) return;
+  var url = btn.getAttribute('data-share-url') || window.location.href;
+  var title = btn.getAttribute('data-share-title') || document.title;
+  var text = btn.getAttribute('data-share-text') || '';
+
+  function openFallbackModal() {
+    var enc = encodeURIComponent;
+    document.querySelector('.share-link-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + enc(url);
+    document.querySelector('.share-link-x').href = 'https://twitter.com/intent/tweet?url=' + enc(url) + '&text=' + enc(title);
+    document.querySelector('.share-link-wa').href = 'https://wa.me/?text=' + enc(title + ' ' + url);
+    document.querySelector('.share-link-li').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc(url);
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', function() {
+    if (navigator.share) {
+      navigator.share({ title: title, text: text, url: url })
+        .then(function() {})
+        .catch(function() { openFallbackModal(); });
+    } else {
+      openFallbackModal();
+    }
+  });
+
+  document.getElementById('share-modal-backdrop').addEventListener('click', closeModal);
+  document.getElementById('share-modal-close').addEventListener('click', closeModal);
+  document.getElementById('share-copy-link').addEventListener('click', function() {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = this;
+      var t = el.textContent;
+      el.textContent = 'Copied!';
+      setTimeout(function() { el.textContent = t; }, 1500);
+    }.bind(this));
+  });
+
+  modal.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+})();
 </script>
 
 {{ end }}
