@@ -1,0 +1,15 @@
+{{ $url := .Get "url" }}
+{{ $text := .Get "text" | default "Click me" }}
+{{ $style := .Get "style" | default "primary" }}
+{{ $size := .Get "size" | default "medium" }}
+
+{{ $classes := printf "btn btn-%s btn-%s" $style $size }}
+
+<a href="{{ $url }}" class="{{ $classes }}" {{ with .Get "target" }}target="{{ . }}"{{ end }}>
+  {{ $text }}
+  {{ if eq $style "primary" }}
+    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  {{ end }}
+</a>

@@ -1,0 +1,24 @@
+{{ if not .Site.Params.homepage.layout }}
+<div class="reading-progress" id="reading-progress"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const progressBar = document.getElementById('reading-progress');
+    const article = document.querySelector('article');
+    
+    if (progressBar && article) {
+      window.addEventListener('scroll', function() {
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        const progress = Math.max(0, Math.min(100, 
+          ((scrollTop - articleTop + windowHeight) / articleHeight) * 100
+        ));
+        
+        progressBar.style.width = progress + '%';
+      });
+    }
+  });
+</script>
+{{ end }}

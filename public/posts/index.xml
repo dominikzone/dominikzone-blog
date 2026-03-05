@@ -7,24 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Dominik</copyright>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>VS Code GitPush Test</title>
-      <link>http://localhost:1313/posts/git_vscode_test/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <title>Testing AI Capabilities: A Blog Cleanup and Content Generation Experiment</title>
+      <link>http://localhost:1313/posts/testing-ai-capabilities-blog-cleanup/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/git_vscode_test/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Welcome on my blog</title>
-      <link>http://localhost:1313/posts/welcome/</link>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/welcome/</guid>
+      <guid>http://localhost:1313/posts/testing-ai-capabilities-blog-cleanup/</guid>
       <description></description>
       
     </item>

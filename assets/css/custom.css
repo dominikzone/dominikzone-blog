@@ -1,0 +1,349 @@
+/* Import modern fonts + cyber font for share label */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap");
+
+/* Custom font variables */
+:root {
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-cyber: 'Orbitron', 'Fira Code', monospace;
+}
+
+/* Apply fonts and optimized sizes/line heights to different elements */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem; /* Base font size */
+  line-height: 1.6;
+  font-feature-settings: 'kern', 'liga', 'calt';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+h5 {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Code blocks */
+pre, code, .prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  font-feature-settings: 'kern', 'liga', 'calt';
+}
+
+/* Inline code */
+.prose :not(pre) > code {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Existing custom styles from the original file, preserved below */
+
+/* Avatar animation effects - clean */
+.avatar-container {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+
+}
+
+.avatar-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.avatar-image:hover {
+  transform: scale(1.02);
+}
+
+/* Share button – cyber font label; icon + text same color on hover */
+.share-label-cyber {
+  font-family: var(--font-cyber);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: inherit;
+}
+.share-btn-cyber:hover,
+.share-btn-cyber:hover .share-label-cyber,
+.share-btn-cyber:hover svg {
+  color: #667eea;
+}
+.dark .share-btn-cyber:hover,
+.dark .share-btn-cyber:hover .share-label-cyber,
+.dark .share-btn-cyber:hover svg {
+  color: #a5b4fc;
+}
+
+/* Reading Progress Bar – height +8px (3px → 11px) */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 11px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  z-index: 1000;
+  transition: width 0.2s ease;
+}
+
+/* Article Card Styles */
+.prose img {
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prose h1, .prose h2, .prose h3 {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.dark .prose h1, .dark .prose h2, .dark .prose h3 {
+  color: #f9fafb;
+}
+
+/* Tag Styles */
+.prose .tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+.prose .tag:hover {
+  background: #c7d2fe;
+  transform: translateY(-1px);
+}
+
+.dark .prose .tag {
+  background: #312e81;
+  color: #e0e7ff;
+}
+
+.dark .prose .tag:hover {
+  background: #4c1d95;
+}
+
+/* Article Meta Styles */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.article-meta svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.dark .article-meta {
+  color: #9ca3af;
+}
+
+/* Responsive Article Header */
+@media (max-width: 1024px) {
+  .article-header {
+    flex-direction: column;
+  }
+  
+  .article-image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Custom styles for dominikzone blog */
+
+/* Animated gradient background */
+.hero-gradient {
+  background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom card hover effects */
+.article-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom typography with new fonts */
+.prose h2 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: var(--font-heading);
+}
+
+.prose h3 {
+  color: #e2e8f0;
+  font-family: var(--font-heading);
+}
+
+/* Enhanced readability */
+.prose p {
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.prose li {
+  line-height: 1.6;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+
+/* Reading progress bar – height 11px (3px + 8px) */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 11px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+/* Enhanced code styling */
+.prose pre {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Homepage specific font adjustments for improved aesthetics and readability */
+
+/* Avatar name "Dominik" */
+.flex.flex-col.items-center.justify-center.text-center h1 {
+  font-size: 2rem; /* Reduced from 2.25rem (text-4xl) */
+  line-height: 1.2;
+}
+
+/* Avatar headline "i Tech..." */
+.flex.flex-col.items-center.justify-center.text-center h2 {
+  font-size: 1.1rem; /* Reduced from 1.25rem (text-xl) */
+  line-height: 1.4;
+}
+
+/* "Recent" heading */
+.recent-articles section h2.font-extrabold {
+  font-size: 1.5rem; /* Reduced from 1.5rem (text-2xl) but ensuring explicit setting */
+  line-height: 1.3;
+}
+
+/* Post Titles */
+.article-link--simple h2,
+.article-link--card h2 {
+  font-size: 1.1rem; /* Reduced from 1.25rem (text-xl) */
+  line-height: 1.4;
+}
+
+/* Adjust the font size of the article summary for better readability */
+.article-link__summary {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

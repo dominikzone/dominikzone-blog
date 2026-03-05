@@ -1,0 +1,137 @@
+{{ define "main" }}
+<main class="container mx-auto px-4 py-8">
+  <article class="max-w-4xl mx-auto">
+    <!-- Article Header -->
+    <header class="mb-8">
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        <!-- Article Image -->
+        {{ if .Params.cover }}
+          <div class="flex-shrink-0">
+            <img 
+              src="{{ .Params.cover }}" 
+              alt="{{ .Title }}"
+              class="w-full lg:w-80 h-48 lg:h-48 object-cover rounded-xl shadow-lg"
+              loading="lazy">
+          </div>
+        {{ end }}
+        
+        <!-- Article Content -->
+        <div class="flex-1">
+          <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+            {{ .Title }}
+          </h1>
+          
+          <!-- Article Meta -->
+          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400 mb-6">
+            <time datetime="{{ .Date.Format "2006-01-02" }}" class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              {{ .Date.Format "02 Jan 2006" }}
+            </time>
+            
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 19 7.5 19s3.332-.523 4.5-1.253V6.253z"></path>
+              </svg>
+              {{ .ReadingTime }} min read
+            </span>
+            
+            {{ if .Params.author }}
+              <span class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h4a7 7 0 007 7h-4z"></path>
+                </svg>
+                {{ .Params.author }}
+              </span>
+            {{ end }}
+          </div>
+          
+          <!-- Tags -->
+          {{ if .Params.tags }}
+            <div class="flex flex-wrap gap-2 mb-6">
+              {{ range .Params.tags }}
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full font-medium">
+                  {{ . }}
+                </span>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg dark:prose-invert max-w-none mb-12">
+      {{ .Content }}
+    </div>
+
+    <!-- Article Footer -->
+    <footer class="border-t border-gray-200 dark:border-gray-700 pt-8">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-sm text-gray-600 dark:text-gray-400">
+          Published on {{ .Date.Format "January 2, 2006" }}
+          {{ if .Lastmod }}
+            • Updated on {{ .Lastmod.Format "January 2, 2006" }}
+          {{ end }}
+        </div>
+        
+        <!-- Share Buttons -->
+        <div class="flex gap-2 items-center">
+          <button type="button" class="share-btn-cyber inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Share article">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+            </svg>
+            <span class="share-label-cyber">share</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <!-- Related Articles -->
+  {{ if .Site.Params.relatedPosts }}
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Related Articles</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range first 3 (where site.RegularPages "Type" "posts") }}
+          {{ if ne .Permalink .Permalink }}
+            <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              {{ if .Params.cover }}
+                <img src="{{ .Params.cover }}" alt="{{ .Title }}" class="w-full h-48 object-cover">
+              {{ end }}
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  <a href="{{ .Permalink }}" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    {{ .Title }}
+                  </a>
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">
+                  {{ .Summary }}
+                </p>
+                <div class="text-xs text-gray-500 dark:text-gray-500 mt-4">
+                  {{ .Date.Format "Jan 2, 2006" }}
+                </div>
+              </div>
+            </article>
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</main>
+
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="reading-progress"></div>
+
+<script>
+// Reading Progress Bar
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('reading-progress').style.width = scrolled + '%';
+});
+</script>
+
+{{ end }}

@@ -1,17 +1,32 @@
 colorScheme = "blowfish"
 defaultAppearance = "dark"
 
+# Custom branding
+[branding]
+  logo = "me.webp"
+  favicon = "/favicon.ico"
+  customCSS = ["css/custom.css"]
+
 [homepage]
   layout = "background"
   showRecent = true
   showRecentItems = 5
   homepageImage = "background.webp"
+  # Nowe opcje
+  showMoreLink = true
+  moreLinkText = "Zobacz wszystkie artykuły"
+  relatedPosts = true
 
 [article]
   showDate = true
   showTags = true
   showReadingTime = true
   showComments = true
+  # Nowe opcje
+  showTableOfContents = true
+  showAuthor = true
+  showEditButton = true
+  editURL = "https://github.com/dominikzone/dominikzone-blog/edit/main/content/"
 
 [search]
   enable = true
@@ -43,3 +58,26 @@ defaultAppearance = "dark"
 
 [header]
   showLogo = true
+  # Nowe opcje
+  showThemeToggle = true
+  showSearch = true
+  showLanguageSwitch = false
+
+[footer]
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  # Nowe opcje
+  customText = "Built with ❤️ and Hugo"
+
+[social]
+  github = "https://github.com/dominikzone"
+  twitter = "https://twitter.com/dominikzone"
+  linkedin = "https://linkedin.com/in/dominikzone"
+
+# Nowe sekcje
+[features]
+  enableCodeCopy = true
+  enableImageZoom = true
+  enableLazyLoading = true
+  enableSmoothScroll = true
