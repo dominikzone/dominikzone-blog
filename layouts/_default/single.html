@@ -117,6 +117,14 @@
         <div id="share-copy-toast" class="share-copy-toast hidden" aria-live="polite">Link copied</div>
       </div>
     </footer>
+
+    {{ if .Params.showComments | default (site.Params.article.showComments | default true) }}
+      {{ if templates.Exists "partials/comments.html" }}
+        <div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+          {{ partial "comments.html" . }}
+        </div>
+      {{ end }}
+    {{ end }}
   </article>
 
   <!-- Related Articles -->
