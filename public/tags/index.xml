@@ -2,69 +2,69 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>http://localhost:42777/tags/</link>
+    <link>https://dominikzone.com/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Dominik</copyright>
-    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:42777/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dominikzone.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Ai</title>
-      <link>http://localhost:42777/tags/ai/</link>
+      <link>https://dominikzone.com/tags/ai/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/ai/</guid>
+      <guid>https://dominikzone.com/tags/ai/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Automation</title>
-      <link>http://localhost:42777/tags/automation/</link>
+      <link>https://dominikzone.com/tags/automation/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/automation/</guid>
+      <guid>https://dominikzone.com/tags/automation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Blog</title>
-      <link>http://localhost:42777/tags/blog/</link>
+      <link>https://dominikzone.com/tags/blog/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/blog/</guid>
+      <guid>https://dominikzone.com/tags/blog/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Content</title>
-      <link>http://localhost:42777/tags/content/</link>
+      <link>https://dominikzone.com/tags/content/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/content/</guid>
+      <guid>https://dominikzone.com/tags/content/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Cursor</title>
-      <link>http://localhost:42777/tags/cursor/</link>
+      <link>https://dominikzone.com/tags/cursor/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/cursor/</guid>
+      <guid>https://dominikzone.com/tags/cursor/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>http://localhost:42777/tags/hugo/</link>
+      <link>https://dominikzone.com/tags/hugo/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:42777/tags/hugo/</guid>
+      <guid>https://dominikzone.com/tags/hugo/</guid>
       <description></description>
       
     </item>
