@@ -1,9 +1,10 @@
 [en]
   languageName = "English"
+  languageCode = "en"
   weight = 1
 
   [en.params]
-    displayName = "EN"
+    displayName = "🇬🇧"
     isoCode = "en"
     rtl = false
     dateFormat = "2 January 2006"
@@ -16,6 +17,31 @@
       image = "me.webp" 
       headline = "Tech Enthusiast & Developer"
       bio = "A blog about switching from Windows to Linux, learning programming, and generating schedules in AI."
+      
+      links = [
+        { github = "https://github.com/dominikzone" },
+        { youtube = "https://www.youtube.com/@dominikzone" }
+      ]
+
+[pl]
+  languageName = "Polski"
+  languageCode = "pl"
+  weight = 2
+
+  [pl.params]
+    displayName = "🇵🇱"
+    isoCode = "pl"
+    rtl = false
+    dateFormat = "2 stycznia 2006"
+    
+    headline = "Witaj w DominikZone"
+    description = "Linux Mint | 42Warsaw | ComfyUI & AI & Gaming"
+    
+    [pl.params.author]
+      name = "Dominik"
+      image = "me.webp" 
+      headline = "Pasjonat technologii i programista"
+      bio = "Blog o przesiadce z Windowsa na Linuxa, nauce programowania i generowaniu harmonogramów w AI."
       
       links = [
         { github = "https://github.com/dominikzone" },

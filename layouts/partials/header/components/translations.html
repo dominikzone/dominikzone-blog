@@ -1,0 +1,27 @@
+<div class="flex items-center ml-4 h-full" style="gap: 10px;">
+  {{ $currentLang := .Site.Language.Lang }}
+  {{ range .Site.Languages }}
+    {{ $lang := .Lang }}
+    {{ $displayName := .Params.displayName }}
+    {{ if eq $lang $currentLang }}
+      <span class="text-xl cursor-default border-b-2 border-primary-500 pb-0.5" title="{{ .LanguageName }}">
+        {{ $displayName | emojify }}
+      </span>
+    {{ else }}
+      {{ $translated := false }}
+      {{ range $.AllTranslations }}
+        {{ if eq .Language.Lang $lang }}
+          <a href="{{ .RelPermalink }}" class="text-xl hover:opacity-70 transition-opacity" title="{{ .Language.LanguageName }}">
+            {{ $displayName | emojify }}
+          </a>
+          {{ $translated = true }}
+        {{ end }}
+      {{ end }}
+      {{ if not $translated }}
+        <a href="{{ (printf "/%s/" $lang) | relURL }}" class="text-xl hover:opacity-70 transition-opacity" title="{{ .LanguageName }}">
+          {{ $displayName | emojify }}
+        </a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>

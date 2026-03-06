@@ -70,11 +70,11 @@
               </div>
             {{ end }}
           {{ end }}
-          <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
+          <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200 name-cyber-gradient">
             {{ .Site.Params.Author.name | default .Site.Title }}
           </h1>
           {{ with .Site.Params.Author.headline }}
-            <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
+            <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300 typing-cyber">
               {{ . | markdownify }}
             </h2>
           {{ end }}
@@ -84,7 +84,7 @@
                 {{ range $links := . }}
                   {{ range $name, $url := $links }}
                     <a
-                      class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1"
+                      class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1 social-icon-cyber social-icon-{{ $name }}"
                       href="{{ $url }}"
                       target="_blank"
                       aria-label="{{ $name | title }}"
