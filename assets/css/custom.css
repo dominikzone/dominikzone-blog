@@ -430,7 +430,7 @@ html {
   position: relative;
 }
 
-.name-cyber-gradient::after {
+h1.name-cyber-gradient::after {
   content: "";
   position: absolute;
   bottom: -4px; /* Space below text */
