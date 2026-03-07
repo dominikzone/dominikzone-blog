@@ -1,12 +1,15 @@
-{{/* Social share: always use me.webp as preview image (also when post has its own images). og:title / og:description = page title and summary. */}}
-{{ $socialImage := "me.webp" | absURL }}
-<meta property="og:image" content="{{ $socialImage }}">
-<meta name="twitter:image" content="{{ $socialImage }}">
-{{ with .Title }}
-  <meta property="og:title" content="{{ . }}">
-  <meta name="twitter:title" content="{{ . }}">
-{{ end }}
-{{ with .Summary | default .Description | default .Site.Params.description }}
-  <meta property="og:description" content="{{ . }}">
-  <meta name="twitter:description" content="{{ . }}">
+{{/* Hreflang tags for multilingual SEO - placed in uncached partial for correct per-page links */}}
+{{ if .IsTranslated }}
+  {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+  {{ end }}
+  
+  {{/* x-default: prefer English version, fallback to current permalink */}}
+  {{ $x_default := .Permalink }}
+  {{ range .AllTranslations }}
+    {{ if eq .Language.LanguageCode "en" }}
+      {{ $x_default = .Permalink }}
+    {{ end }}
+  {{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ $x_default }}">
 {{ end }}

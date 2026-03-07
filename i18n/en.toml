@@ -7,3 +7,7 @@ read_time = "min read"
 related_articles = "Related Articles"
 copy_link = "Copy link"
 copied = "Copied!"
+
+[social]
+my_github = "My Github"
+my_youtube = "My Youtube"

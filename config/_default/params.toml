@@ -30,6 +30,7 @@ defaultSocialImage = "me.webp"
   showAuthor = true
   showEditButton = true
   editURL = "https://github.com/dominikzone/dominikzone-blog/edit/main/content/"
+  enableStructuredBreadcrumbs = true
 
 [search]
   enable = true

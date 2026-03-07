@@ -87,8 +87,8 @@
                       class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1 social-icon-cyber social-icon-{{ $name }}"
                       href="{{ $url }}"
                       target="_blank"
-                      aria-label="{{ $name | title }}"
-                      title="{{ $name | title }}"
+                      aria-label="{{ i18n (printf "social.my_%s" $name) | default ($name | title) }}"
+                      title="{{ i18n (printf "social.my_%s" $name) | default ($name | title) }}"
                       rel="me noopener noreferrer">
                       {{ partial "icon.html" $name }}
                     </a>

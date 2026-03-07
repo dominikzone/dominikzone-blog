@@ -430,6 +430,46 @@ html {
   position: relative;
 }
 
+h1.name-cyber-gradient::before,
+h1.name-cyber-gradient::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: 1px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+h1.name-cyber-gradient::before {
+  background: #ff00c1; /* Magenta/Red */
+  z-index: -1;
+  animation: glitch-line-1 4s infinite;
+}
+
+h1.name-cyber-gradient::after {
+  background: #00fff0; /* Cyan/Blue */
+  z-index: -2;
+  animation: glitch-line-2 4s infinite;
+}
+
+@keyframes glitch-line-1 {
+  0%, 100% { transform: translate(0); }
+  92% { transform: translate(0); opacity: 0.7; }
+  93% { transform: translate(-2px, 1px); opacity: 1; }
+  94% { transform: translate(2px, -1px); opacity: 0.8; }
+  95% { transform: translate(0); opacity: 0.7; }
+}
+
+@keyframes glitch-line-2 {
+  0%, 100% { transform: translate(0); }
+  92% { transform: translate(0); opacity: 0.7; }
+  93% { transform: translate(2px, -1px); opacity: 1; }
+  94% { transform: translate(-2px, -1px); opacity: 0.8; }
+  95% { transform: translate(0); opacity: 0.7; }
+}
+
 @keyframes shine {
   to {
     background-position: 200% center;
@@ -470,7 +510,7 @@ html {
 }
 
 .social-icon-cyber:hover {
-  transform: scale(1.2) translateY(-4px);
+  transform: scale(1.41) translateY(-4px);
 }
 
 .social-icon-github:hover {
