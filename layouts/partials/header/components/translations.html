@@ -4,7 +4,7 @@
     {{ $lang := .Lang }}
     {{ $displayName := .Params.displayName }}
     {{ if eq $lang $currentLang }}
-      <span class="text-xl cursor-default border-b-2 border-primary-500 pb-0.5" title="{{ .LanguageName }}">
+      <span class="text-xl cursor-default pb-0.5" title="{{ .LanguageName }}">
         {{ $displayName | emojify }}
       </span>
     {{ else }}

@@ -430,16 +430,6 @@ html {
   position: relative;
 }
 
-h1.name-cyber-gradient::after {
-  content: "";
-  position: absolute;
-  bottom: -4px; /* Space below text */
-  left: -5px; /* Offset 5px left */
-  width: calc(100% + 10px); /* 5px left + 5px right */
-  height: 2px;
-  background-color: white;
-}
-
 @keyframes shine {
   to {
     background-position: 200% center;
